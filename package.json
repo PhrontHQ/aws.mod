@@ -1,0 +1,35 @@
+{
+  "_comment": [
+    "# If you use npm to generate or modify this file, make sure",
+    "# to restore the file's 4 space indents after the generation",
+    "# or modification so it matches other source files in the",
+    "# project. npm only generates files with 2 space indents",
+    "# (see https://github.com/npm/npm/pull/3180#issuecomment-16336516)."
+  ],
+  "name": "aws-mod",
+  "version": "1.0.0",
+  "private": false,
+  "license": "BSD-3-Clause",
+  "main": "",
+  "author": "Phront. (https://phront.com/)",
+  "repository": {
+    "type": "git",
+    "url": "PhrontHQ/aws-mod"
+  },
+  "dependencies": {
+    "@aws-sdk/client-apigatewaymanagementapi": "^3.523.0",
+    "@aws-sdk/client-cognito-identity-provider": "^3.75.0",
+    "@aws-sdk/client-rds-data": "^3.75.0",
+    "@aws-sdk/client-s3": "^3.75.0",
+    "@aws-sdk/client-secrets-manager": "^3.75.0",
+    "@aws-sdk/credential-provider-ini": "^3.75.0",
+    "@aws-sdk/s3-request-presigner": "^3.75.0",
+    "amazon-cognito-identity-js": "^3.2.0",
+    "montage": "github:PhrontHQ/montage#mod",
+    "object-sizeof": "^1.5.2"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+  }
+}

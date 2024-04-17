@@ -1,0 +1,38 @@
+{
+    "root": {
+        "prototype": "montage/core/meta/module-object-descriptor",
+        "values": {
+            "name": "Tag",
+            "propertyDescriptors": [
+                {"@": "key"},
+                {"@": "value"}
+            ],
+            "objectDescriptorModule": {
+                "%": "./tag.mjson"
+            },
+            "exportName": "Tag",
+            "module": {
+                "%": "./tag"
+            },
+            "parent":{"@": "ObjectDescriptor"}
+        }
+    },
+    "ObjectDescriptor": {
+        "object": "../data-object.mjson"
+    },
+    "key": {
+        "prototype": "montage/core/meta/property-descriptor",
+        "values": {
+            "name": "key",
+            "valueType": "string"
+        }
+    },
+    "value": {
+        "prototype": "montage/core/meta/property-descriptor",
+        "values": {
+            "name": "value",
+            "valueType": "string"
+        }
+    }
+
+}
