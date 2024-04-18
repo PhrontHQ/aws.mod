@@ -1,4 +1,4 @@
-var PostgreSQLClientPool = require("../postgre-s-q-l-client-pool").PostgreSQLClientPool
+var PostgreSQLClientPool = require("postgre-s-q-l-mod/data/main.mod/service/postgre-s-q-l-client-pool").PostgreSQLClientPool
 
     DataOperation = require("montage/data/service/data-operation").DataOperation,
     DataOperationErrorNames = require("montage/data/service/data-operation").DataOperationErrorNames,

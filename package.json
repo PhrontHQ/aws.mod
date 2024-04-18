@@ -27,6 +27,7 @@
     "amazon-cognito-identity-js": "^3.2.0",
     "montage": "github:PhrontHQ/montage#mod",
     "app-infrastructure-data-mod": "github:PhrontHQ/app-infrastructure-data-mod#main",
+    "postgre-s-q-l-mod": "github:PhrontHQ/postgre-s-q-l-mod#main",
     "object-sizeof": "^1.5.2"
   },
   "devDependencies": {
