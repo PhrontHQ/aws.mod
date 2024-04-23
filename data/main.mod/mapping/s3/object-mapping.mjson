@@ -39,7 +39,7 @@
     },
 
     "Object": {
-        "object": "../../../model/aws/s3/object.mjson"
+        "object": "../../../model/s3/object.mjson"
     },
     "bucket-converter": {
         "prototype": "montage/data/converter/raw-foreign-value-to-object-converter",
@@ -48,7 +48,7 @@
         }
     },
     "string-to-date-converter": {
-        "prototype": "../../../converter/i-s-o-date-string-to-date-converter"
+        "prototype": "montage/core/converter/i-s-o-date-string-to-date-converter"
     },
 
     "Key": {
