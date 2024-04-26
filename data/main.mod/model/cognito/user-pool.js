@@ -1,12 +1,12 @@
 /**
-    @module phront/data/main.mod/model/aws/secret
+    @module aws.mod/data/main.mod/model/user-pool
 */
 
 var Target = require("montage/core/target").Target;
 
 /**
- * @class Application
- * @extends Application
+ * @class UserPool
+ * @extends Target
  *
  */
 

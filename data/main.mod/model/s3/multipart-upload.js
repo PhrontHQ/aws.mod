@@ -1,5 +1,5 @@
 /**
-    @module phront/data/main.mod/model/aws/s3/multipart-upload
+    @module aws.mod//data/main.mod/model/s3/multipart-upload
 */
 
 

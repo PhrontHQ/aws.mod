@@ -1,5 +1,5 @@
 /**
-    @module phront/data/main.mod/model/aws/secret
+    @module aws.mod/data/main.mod/model/user-pool-client
 */
 
 var Target = require("montage/core/target").Target;

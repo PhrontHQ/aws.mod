@@ -1,5 +1,5 @@
 /**
-    @module phront/data/main.mod/model/aws/secret
+    @module aws.mod/data/main.mod/model/tag
 */
 
 var DataObject = require("montage/data/model/data-object").DataObject;

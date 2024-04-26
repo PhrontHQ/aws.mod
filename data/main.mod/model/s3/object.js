@@ -1,5 +1,5 @@
 /**
-    @module phront/data/main.mod/model/aws/s3/object
+    @module aws.mod//data/main.mod/model/s3/object
 */
 
 var DataObject = require("montage/data/model/data-object").DataObject;
