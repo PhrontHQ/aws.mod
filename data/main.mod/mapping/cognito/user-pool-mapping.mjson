@@ -35,7 +35,7 @@
     },
 
     "UserPoolDescriptor": {
-        "object": "../../../model/aws/cognito/user-pool.mjson"
+        "object": "../../model/cognito/user-pool.mjson"
     },
 
     "IdDescriptor": {

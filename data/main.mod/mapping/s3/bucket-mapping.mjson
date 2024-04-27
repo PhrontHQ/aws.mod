@@ -22,7 +22,7 @@
     },
 
     "BucketDescriptor": {
-        "object": "../../../model/s3/bucket.mjson"
+        "object": "../../model/s3/bucket.mjson"
     },
 
     "Bucket": {

@@ -23,7 +23,7 @@
     },
 
     "TagDescriptor": {
-        "object": "../../model/aws/s3/tag.mjson"
+        "object": "../../model/s3/tag.mjson"
     },
 
     "TagIdDescriptor": {

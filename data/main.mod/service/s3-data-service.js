@@ -11,9 +11,9 @@ var S3Client,
     //SyntaxInOrderIterator = (require) ("montage/core/frb/syntax-iterator").SyntaxInOrderIterator,
     DataOperation = require("montage/data/service/data-operation").DataOperation,
     crypto = require("crypto"),
-    BucketDescriptor = require("../../model/aws/s3/bucket.mjson").montageObject,
-    ObjectDescriptor = require("../../model/aws/s3/object.mjson").montageObject,
-    ExpiringObjectDownloadDescriptor = require("../../model/aws/s3/expiring-object-download.mjson").montageObject,
+    BucketDescriptor = require("../model/s3/bucket.mjson").montageObject,
+    ObjectDescriptor = require("../model/s3/object.mjson").montageObject,
+    ExpiringObjectDownloadDescriptor = require("../model/s3/expiring-object-download.mjson").montageObject,
     S3DataService;
 
 

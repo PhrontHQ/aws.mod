@@ -4,7 +4,7 @@ var SecretsManagerClient,
     //SyntaxInOrderIterator = (require)("montage/core/frb/syntax-iterator").SyntaxInOrderIterator,
     DataOperation = require("montage/data/service/data-operation").DataOperation,
     //Causes issues
-    // secretObjectDescriptor = (require) ("../model/aws/secret.mjson").montageObject,
+    // secretObjectDescriptor = (require) ("../model/secret.mjson").montageObject,
     S3DataService;
 
     /*

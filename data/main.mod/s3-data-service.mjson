@@ -1,6 +1,6 @@
 {
     "root": {
-        "prototype": "./service/aws/s3-data-service",
+        "prototype": "./service/s3-data-service",
         "values": {
             "identifier": "S3DataService",
             "name": "S3DataService",
@@ -20,27 +20,27 @@
 
 
     "Bucket": {
-        "object": "./model/aws/s3/bucket.mjson"
+        "object": "./model/s3/bucket.mjson"
     },
 
     "BucketMapping": {
-        "object": "./mapping/aws/s3/bucket-mapping.mjson"
+        "object": "./mapping/s3/bucket-mapping.mjson"
     },
 
     "Object": {
-        "object": "./model/aws/s3/object.mjson"
+        "object": "./model/s3/object.mjson"
     },
 
     "ObjectMapping": {
-        "object": "./mapping/aws/s3/object-mapping.mjson"
+        "object": "./mapping/s3/object-mapping.mjson"
     },
 
     "ExpiringObjectDownload": {
-        "object": "./model/aws/s3/expiring-object-download.mjson"
+        "object": "./model/s3/expiring-object-download.mjson"
     },
 
     "ExpiringObjectDownloadMapping": {
-        "object": "./mapping/aws/s3/expiring-object-download-mapping.mjson"
+        "object": "./mapping/s3/expiring-object-download-mapping.mjson"
     }
 
 }

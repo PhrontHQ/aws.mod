@@ -11,8 +11,8 @@ var fromIni,
     SyntaxInOrderIterator = require("montage/core/frb/syntax-iterator").SyntaxInOrderIterator,
     DataOperation = require("montage/data/service/data-operation").DataOperation,
     crypto = require("crypto"),
-    CognitoUserPoolDescriptor = require("../../model/aws/cognito/user-pool.mjson").montageObject,
-    CognitoUserPoolClientDescriptor = require("../../model/aws/cognito/user-pool-client.mjson").montageObject;
+    CognitoUserPoolDescriptor = require("../model/cognito/user-pool.mjson").montageObject,
+    CognitoUserPoolClientDescriptor = require("../model/cognito/user-pool-client.mjson").montageObject;
 
 
 /*
