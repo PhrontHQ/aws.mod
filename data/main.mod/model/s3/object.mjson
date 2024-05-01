@@ -21,10 +21,10 @@
             "module": {
                 "%": "./object"
             },
-            "parent":{"@": "ObjectDescriptor"}
+            "parent":{"@": "DataObjectDescriptor"}
         }
     },
-    "ObjectDescriptor": {
+    "DataObjectDescriptor": {
         "object": "montage/data/model/data-object.mjson"
     },
     "bucketName": {
