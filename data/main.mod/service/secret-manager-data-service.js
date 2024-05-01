@@ -74,12 +74,20 @@ exports.SecretManagerDataService = SecretManagerDataService = AWSRawDataService.
         get: function () {
             var promises = this.super();
 
+            /*
+                const { SecretsManagerClient, ListSecretsCommand } = require("@aws-sdk/client-secrets-manager");
+            */
+
             promises.push(
-                require.async("@aws-sdk/client-secrets-manager/dist-cjs/SecretsManagerClient").then(function(exports) { SecretsManagerClient = exports.SecretsManagerClient})
+                // require.async("@aws-sdk/client-secrets-manager/dist-cjs/SecretsManagerClient").then(function(exports) { SecretsManagerClient = exports.SecretsManagerClient})
+                require.async("@aws-sdk/client-secrets-manager").then(function(exports) {
+                    SecretsManagerClient = exports.SecretsManagerClient;
+                    GetSecretValueCommand = exports.GetSecretValueCommand;
+                })
             );
-            promises.push(
-                require.async("@aws-sdk/client-secrets-manager/dist-cjs/commands/GetSecretValueCommand").then(function(exports) { GetSecretValueCommand = exports.GetSecretValueCommand})
-            );
+            // promises.push(
+            //     require.async("@aws-sdk/client-secrets-manager/dist-cjs/commands/GetSecretValueCommand").then(function(exports) { GetSecretValueCommand = exports.GetSecretValueCommand})
+            // );
 
             return promises;
 
