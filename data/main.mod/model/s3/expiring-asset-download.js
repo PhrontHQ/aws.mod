@@ -2,7 +2,7 @@
     @module aws.mod/data/main.mod/model/s3/expiring-asset-download
 */
 
-var DataObject = require("montage/data/model/data-object").DataObject;
+var DataObject = require("mod/data/model/data-object").DataObject;
 
 /**
  * @class ExpiringAssetDownload

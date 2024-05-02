@@ -1,6 +1,6 @@
 {
     "root": {
-        "prototype": "montage/data/service/expression-data-mapping",
+        "prototype": "mod/data/service/expression-data-mapping",
         "values": {
             "objectDescriptor": {"@": "UserPoolDescriptor"},
             "primaryKeyPropertyDescriptors": [
@@ -39,20 +39,20 @@
     },
 
     "IdDescriptor": {
-        "prototype": "montage/core/meta/property-descriptor",
+        "prototype": "mod/core/meta/property-descriptor",
         "values": {
             "name": "Id",
             "valueType": "string"
         }
     },
     "appClients-converter": {
-        "prototype": "montage/data/converter/raw-foreign-value-to-object-converter",
+        "prototype": "mod/data/converter/raw-foreign-value-to-object-converter",
         "values": {
             "convertExpression": "UserPoolId == $"
         }
     },
     "string-to-date-converter": {
-        "prototype": "montage/core/converter/i-s-o-date-string-to-date-converter"
+        "prototype": "mod/core/converter/i-s-o-date-string-to-date-converter"
     }
 
 }

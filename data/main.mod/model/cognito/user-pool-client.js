@@ -2,7 +2,7 @@
     @module aws.mod/data/main.mod/model/user-pool-client
 */
 
-var Target = require("montage/core/target").Target;
+var Target = require("mod/core/target").Target;
 
 /**
  * @class UserPoolClient
