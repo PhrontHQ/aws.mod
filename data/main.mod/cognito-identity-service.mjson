@@ -13,7 +13,7 @@
         }
     },
     "user-identity": {
-        "object": "./model/app/user-identity.mjson"
+        "object": "app-infrastructure-data.mod/data/main.mod/model/user-identity.mjson"
     },
     "userIdentityMapping": {
         "object": "./mapping/app/user-identity-mapping.mjson"
