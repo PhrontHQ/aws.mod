@@ -6,7 +6,7 @@ var IdentityService = require("mod/data/service/identity-service").IdentityServi
     CognitoUserAttribute = AmazonCognitoIdentity.CognitoUserAttribute,
     CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool,
     CognitoUser = AmazonCognitoIdentity.CognitoUser,
-    UserIdentity = require("../model/app/user-identity").UserIdentity,
+    UserIdentity = require("app-infrastructure-data.mod/data/main.mod/model/user-identity").UserIdentity,
     Criteria = require("mod/core/criteria").Criteria,
     uuid = require("mod/core/uuid");
 
