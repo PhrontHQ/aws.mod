@@ -1,0 +1,23 @@
+{
+    "root": {
+        "object": "app-infrastructure-data.mod/data/main.mod/model/user-pool.mjson",
+        "values": {
+            "propertyDescriptors": [
+                {"@": "cognitoUserPool"}
+            ]
+        }
+    },
+
+    "cognitoUserPool": {
+        "prototype": "mod/core/meta/property-descriptor",
+        "values": {
+            "name": "cognitoUserPool",
+            "cardinality": 1,
+            "valueType": "object",
+            "valueDescriptor": {"@": "CognitoUserPoolDescriptor"}
+       }
+    },
+    "CognitoUserPoolDescriptor": {
+        "object": "./cognito/user-pool.mjson"
+    }
+}
