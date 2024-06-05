@@ -30,20 +30,30 @@ var IdentityService = require("mod/data/service/identity-service").IdentityServi
 
 
 */
+const CognitoIdentityService = exports.CognitoIdentityService = class CognitoIdentityService extends IdentityService {/** @lends CognitoIdentityService */
+    constructor() {
+        super();
 
+        this._usersByName = new Map();
+        this._fetchStreamByUser = new WeakMap();
 
-CognitoIdentityService = exports.CognitoIdentityService = IdentityService.specialize({
-    /***************************************************************************
-     * Initializing
-     */
+    }
+}
 
-    constructor: {
-        value: function CognitoIdentityService() {
-            this.super();
-            this._usersByName = new Map();
-            this._fetchStreamByUser = new WeakMap();
-        }
-    },
+// CognitoIdentityService = exports.CognitoIdentityService = IdentityService.specialize({
+//     /***************************************************************************
+//      * Initializing
+//      */
+
+//     constructor: {
+//         value: function CognitoIdentityService() {
+//             this.super();
+//             this._usersByName = new Map();
+//             this._fetchStreamByUser = new WeakMap();
+//         }
+//     },
+
+CognitoIdentityService.addClassProperties({
 
      /***************************************************************************
      * Serialization

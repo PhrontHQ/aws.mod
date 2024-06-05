@@ -1,6 +1,5 @@
 var RawDataService = require("mod/data/service/raw-data-service").RawDataService,
-fromIni,
-AWSRawDataService;
+fromIni;
 
 
 /**
