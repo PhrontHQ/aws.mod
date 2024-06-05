@@ -25,27 +25,35 @@ var fromIni,
 * @class
 * @extends AWSRawDataService
 */
-exports.CognitoDataService = CognitoDataService = AWSRawDataService.specialize(/** @lends CognitoDataService.prototype */ {
+const CognitoDataService = exports.CognitoDataService = class CognitoDataService extends AWSRawDataService {/** @lends CognitoDataService */
+    constructor() {
+        super();
+    }
+}
+// exports.CognitoDataService = CognitoDataService = AWSRawDataService.specialize(/** @lends CognitoDataService.prototype */ {
 
-    /***************************************************************************
-     * Initializing
-     */
+//     /***************************************************************************
+//      * Initializing
+//      */
 
-    constructor: {
-        value: function CognitoDataService() {
-            this.super();
-            return this;
-            /*
-                Currently CognitoObjects don't inherit from DataObjects, so the logical bug in event path delivery because of the inherirance causing to be routed to the PostgreSQL service instead doesn't apply here, so no need to register specificall on these object descriptors difectly.
-            */
-            // CognitoUserPoolDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
-            // CognitoUserPoolDescriptor.addEventListener(DataOperation.Type.CreateOperation,this,false);
+//     constructor: {
+//         value: function CognitoDataService() {
+//             this.super();
+//             return this;
+//             /*
+//                 Currently CognitoObjects don't inherit from DataObjects, so the logical bug in event path delivery because of the inherirance causing to be routed to the PostgreSQL service instead doesn't apply here, so no need to register specificall on these object descriptors difectly.
+//             */
+//             // CognitoUserPoolDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
+//             // CognitoUserPoolDescriptor.addEventListener(DataOperation.Type.CreateOperation,this,false);
 
-            // CognitoUserPoolClientDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
-            // CognitoUserPoolClientDescriptor.addEventListener(DataOperation.Type.CreateOperation,this,false);
+//             // CognitoUserPoolClientDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
+//             // CognitoUserPoolClientDescriptor.addEventListener(DataOperation.Type.CreateOperation,this,false);
 
-        }
-    },
+//         }
+//     },
+
+CognitoDataService.addClassProperties({
+
     apiVersion: {
         value: "2016-04-18"
     },

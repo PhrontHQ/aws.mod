@@ -18,37 +18,66 @@ var SecretsManagerClient,
 * @class
 * @extends AWSRawDataService
 */
-exports.SecretManagerDataService = SecretManagerDataService = AWSRawDataService.specialize(/** @lends SecretManagerDataService.prototype */ {
+const SecretManagerDataService = exports.SecretManagerDataService = class SecretManagerDataService extends AWSRawDataService {/** @lends SecretManagerDataService */
+    constructor() {
+        super();
 
-    /***************************************************************************
-     * Initializing
-     */
+        //var mainService = DataService.mainService;
+        //this.addEventListener(DataOperation.Type.ReadOperation,this,false);
+        /*
+            There's somethig fragile that needs to be solved here. If we listen on this, expecting that an event whose target is secretObjectDescriptorm, which we manage, is going to bubble to us. The problem is that it bubbles from Secret to DataObject first, but DataObject isn't handled by SecretManagerDataService, and so it bubbles through something else that manages directly DataObject. So that logic has to be adapted.
 
-    constructor: {
-        value: function SecretManagerDataService() {
-            this.super();
-
-            //var mainService = DataService.mainService;
-            //this.addEventListener(DataOperation.Type.ReadOperation,this,false);
-            /*
-                There's somethig fragile that needs to be solved here. If we listen on this, expecting that an event whose target is secretObjectDescriptorm, which we manage, is going to bubble to us. The problem is that it bubbles from Secret to DataObject first, but DataObject isn't handled by SecretManagerDataService, and so it bubbles through something else that manages directly DataObject. So that logic has to be adapted.
-
-                There's also a dependency graph issue if we require secretObjectDescriptor directly, leaving it commmented above to remind of it.
-            */
-            //secretObjectDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
-            var self = this;
-            this._childServiceTypes.addRangeChangeListener(function (plus, minus) {
-                for(var i=0, countI = plus.length, iObjectDescriptor; (i < countI); i++) {
-                    iObjectDescriptor = plus[i];
-                    if(iObjectDescriptor.name === "Secret") {
-                        iObjectDescriptor.addEventListener(DataOperation.Type.ReadOperation,self,false);
-                    }
+            There's also a dependency graph issue if we require secretObjectDescriptor directly, leaving it commmented above to remind of it.
+        */
+        //secretObjectDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
+        var self = this;
+        this._childServiceTypes.addRangeChangeListener(function (plus, minus) {
+            for(var i=0, countI = plus.length, iObjectDescriptor; (i < countI); i++) {
+                iObjectDescriptor = plus[i];
+                if(iObjectDescriptor.name === "Secret") {
+                    iObjectDescriptor.addEventListener(DataOperation.Type.ReadOperation,self,false);
                 }
-            });
+            }
+        });
 
-            return this;
-        }
-    },
+        return this;
+
+    }
+}
+
+// exports.SecretManagerDataService = SecretManagerDataService = AWSRawDataService.specialize(/** @lends SecretManagerDataService.prototype */ {
+
+//     /***************************************************************************
+//      * Initializing
+//      */
+
+//     constructor: {
+//         value: function SecretManagerDataService() {
+//             this.super();
+
+//             //var mainService = DataService.mainService;
+//             //this.addEventListener(DataOperation.Type.ReadOperation,this,false);
+//             /*
+//                 There's somethig fragile that needs to be solved here. If we listen on this, expecting that an event whose target is secretObjectDescriptorm, which we manage, is going to bubble to us. The problem is that it bubbles from Secret to DataObject first, but DataObject isn't handled by SecretManagerDataService, and so it bubbles through something else that manages directly DataObject. So that logic has to be adapted.
+
+//                 There's also a dependency graph issue if we require secretObjectDescriptor directly, leaving it commmented above to remind of it.
+//             */
+//             //secretObjectDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
+//             var self = this;
+//             this._childServiceTypes.addRangeChangeListener(function (plus, minus) {
+//                 for(var i=0, countI = plus.length, iObjectDescriptor; (i < countI); i++) {
+//                     iObjectDescriptor = plus[i];
+//                     if(iObjectDescriptor.name === "Secret") {
+//                         iObjectDescriptor.addEventListener(DataOperation.Type.ReadOperation,self,false);
+//                     }
+//                 }
+//             });
+
+//             return this;
+//         }
+//     },
+
+SecretManagerDataService.addClassProperties({
 
     apiVersion: {
         value: "2017-10-17"

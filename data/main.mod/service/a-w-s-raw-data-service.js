@@ -9,13 +9,21 @@ AWSRawDataService;
 * @class
 * @extends RawDataService
 */
-exports.AWSRawDataService = AWSRawDataService = RawDataService.specialize(/** @lends PhrontService.prototype */ {
-    constructor: {
-        value: function AWSRawDataService() {
-            this.super();
-            return this;
-        }
-    },
+const AWSRawDataService = exports.AWSRawDataService = class AWSRawDataService extends RawDataService {/** @lends AWSRawDataService */
+    constructor() {
+        super();
+    }
+}
+
+// exports.AWSRawDataService = AWSRawDataService = RawDataService.specialize(/** @lends AWSRawDataService.prototype */ {
+//     constructor: {
+//         value: function AWSRawDataService() {
+//             this.super();
+//             return this;
+//         }
+//     },
+
+AWSRawDataService.addClassProperties({
 
     apiVersion: {
         value: undefined

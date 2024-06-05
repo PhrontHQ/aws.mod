@@ -34,25 +34,43 @@ var Identity = require("mod/data/model/identity").Identity;
 * @class
 * @extends RawDataService
 */
-exports.AWSAPIGatewayWebSocketDataOperationService = AWSAPIGatewayWebSocketDataOperationService = RawDataService.specialize(/** @lends AWSAPIGatewayWebSocketDataOperationService.prototype */ {
-    constructor: {
-        value: function AWSAPIGatewayWebSocketDataOperationService() {
-            var self = this;
+const AWSAPIGatewayWebSocketDataOperationService = exports.AWSAPIGatewayWebSocketDataOperationService = class AWSAPIGatewayWebSocketDataOperationService extends RawDataService {/** @lends AWSAPIGatewayWebSocketDataOperationService */
+    constructor() {
+        super();
 
-            this._failedConnections = 0;
-            this.super();
+        this._failedConnections = 0;
+        this.addOwnPropertyChangeListener("mainService", this);
 
-            this.addOwnPropertyChangeListener("mainService", this);
+        //this._serializer = new MontageSerializer().initWithRequire(require);
+        this._serializer = new MontageSerializer().initWithRequire(global.require);
+        this._deserializer = new Deserializer();
 
-            //this._serializer = new MontageSerializer().initWithRequire(require);
-            this._serializer = new MontageSerializer().initWithRequire(global.require);
-            this._deserializer = new Deserializer();
+        this._readOperationQueue = [];
 
-            this._readOperationQueue = [];
+    }
 
-            return this;
-        }
-    },
+}
+// exports.AWSAPIGatewayWebSocketDataOperationService = AWSAPIGatewayWebSocketDataOperationService = RawDataService.specialize(/** @lends AWSAPIGatewayWebSocketDataOperationService.prototype */ {
+//     constructor: {
+//         value: function AWSAPIGatewayWebSocketDataOperationService() {
+//             var self = this;
+
+//             this._failedConnections = 0;
+//             this.super();
+
+//             this.addOwnPropertyChangeListener("mainService", this);
+
+//             //this._serializer = new MontageSerializer().initWithRequire(require);
+//             this._serializer = new MontageSerializer().initWithRequire(global.require);
+//             this._deserializer = new Deserializer();
+
+//             this._readOperationQueue = [];
+
+//             return this;
+//         }
+//     },
+
+AWSAPIGatewayWebSocketDataOperationService.addClassProperties({
 
     supportsTransaction: {
         value: true

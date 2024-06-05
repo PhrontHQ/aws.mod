@@ -24,46 +24,85 @@ var S3Client,
 * @class
 * @extends AWSRawDataService
 */
-exports.S3DataService = S3DataService = AWSRawDataService.specialize(/** @lends S3DataService.prototype */ {
+const S3DataService = exports.S3DataService = class S3DataService extends AWSRawDataService {/** @lends S3DataService */
+
+    constructor() {
+        super();
+
+        var mainService = DataService.mainService;
+        // mainService.addEventListener(DataOperation.Type.ReadOperation,this,false);
+        // mainService.addEventListener(DataOperation.Type.CreateOperation,this,false);
+
+        /*
+            #TODO #Fix There's a bug with event distribution path constructed for Object: following nextTarget, we end-up on DataObject, the super-class of Object, which is registered to PhrontDataService, and ends up being the nextTarget when we get into services rather than S3DataService which is the service handling Object.
+
+            So we need to re-work nextTarget,
+                - either adding to it the ability to get the whole path at omce, which for the data layer would give us the ability to build what we need and cache it once and for all.
+                - or by improving nextTarget by turning it into a method carrying the path built so far su upper objects can be smarter about it? In our case looking at the target's service to continue in that layer the right way?
+
+            In the mean time, listening directly for the type we handle should do it.
+
+            And of course we need the equivalent of prepareForActivationEvent for DataServices to add themselves as listener lazily.
+
+        */
+
+        BucketDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
+        BucketDescriptor.addEventListener(DataOperation.Type.CreateOperation,this,false);
+
+        ObjectDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
+        ObjectDescriptor.addEventListener(DataOperation.Type.CreateOperation,this,false);
+
+        ExpiringObjectDownloadDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
+        ExpiringObjectDownloadDescriptor.addEventListener(DataOperation.Type.CreateOperation,this,false);
+
+
+        return this;
+
+    }
+}
+
+// exports.S3DataService = S3DataService = AWSRawDataService.specialize(/** @lends S3DataService.prototype */ {
 
     /***************************************************************************
      * Initializing
      */
 
-    constructor: {
-        value: function S3DataService() {
-            this.super();
+    // constructor: {
+    //     value: function S3DataService() {
+    //         this.super();
 
-            var mainService = DataService.mainService;
-            // mainService.addEventListener(DataOperation.Type.ReadOperation,this,false);
-            // mainService.addEventListener(DataOperation.Type.CreateOperation,this,false);
+    //         var mainService = DataService.mainService;
+    //         // mainService.addEventListener(DataOperation.Type.ReadOperation,this,false);
+    //         // mainService.addEventListener(DataOperation.Type.CreateOperation,this,false);
 
-            /*
-                #TODO #Fix There's a bug with event distribution path constructed for Object: following nextTarget, we end-up on DataObject, the super-class of Object, which is registered to PhrontDataService, and ends up being the nextTarget when we get into services rather than S3DataService which is the service handling Object.
+    //         /*
+    //             #TODO #Fix There's a bug with event distribution path constructed for Object: following nextTarget, we end-up on DataObject, the super-class of Object, which is registered to PhrontDataService, and ends up being the nextTarget when we get into services rather than S3DataService which is the service handling Object.
 
-                So we need to re-work nextTarget,
-                    - either adding to it the ability to get the whole path at omce, which for the data layer would give us the ability to build what we need and cache it once and for all.
-                    - or by improving nextTarget by turning it into a method carrying the path built so far su upper objects can be smarter about it? In our case looking at the target's service to continue in that layer the right way?
+    //             So we need to re-work nextTarget,
+    //                 - either adding to it the ability to get the whole path at omce, which for the data layer would give us the ability to build what we need and cache it once and for all.
+    //                 - or by improving nextTarget by turning it into a method carrying the path built so far su upper objects can be smarter about it? In our case looking at the target's service to continue in that layer the right way?
 
-                In the mean time, listening directly for the type we handle should do it.
+    //             In the mean time, listening directly for the type we handle should do it.
 
-                And of course we need the equivalent of prepareForActivationEvent for DataServices to add themselves as listener lazily.
+    //             And of course we need the equivalent of prepareForActivationEvent for DataServices to add themselves as listener lazily.
 
-            */
+    //         */
 
-            BucketDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
-            BucketDescriptor.addEventListener(DataOperation.Type.CreateOperation,this,false);
+    //         BucketDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
+    //         BucketDescriptor.addEventListener(DataOperation.Type.CreateOperation,this,false);
 
-            ObjectDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
-            ObjectDescriptor.addEventListener(DataOperation.Type.CreateOperation,this,false);
+    //         ObjectDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
+    //         ObjectDescriptor.addEventListener(DataOperation.Type.CreateOperation,this,false);
 
-            ExpiringObjectDownloadDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
-            ExpiringObjectDownloadDescriptor.addEventListener(DataOperation.Type.CreateOperation,this,false);
+    //         ExpiringObjectDownloadDescriptor.addEventListener(DataOperation.Type.ReadOperation,this,false);
+    //         ExpiringObjectDownloadDescriptor.addEventListener(DataOperation.Type.CreateOperation,this,false);
 
 
-            return this;
-        }
-    },
+    //         return this;
+    //     }
+    // },
+
+S3DataService.addClassProperties({
 
     handleCreateTransactionOperation: {
         value: function (createTransactionOperation) {
