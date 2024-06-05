@@ -1,0 +1,60 @@
+{
+    "root": {
+        "prototype": "mod/data/service/expression-data-mapping",
+        "values": {
+            "objectDescriptor": {"@": "AppClientDescriptor"},
+            "rawDataPrimaryKeys":["id"],
+            "objectMapping": {
+                "rules": {
+                     "name": {"<->": "name"},
+                    "identifier": {"<->": "identifier"},
+                    "credentials": {"<->": "credentials"},
+                    "userPool": {
+                        "<->": "cognitoUserPoolId",
+                        "converter": {"@": "userPool-converter"}
+                    },
+                    "application": {
+                        "<->": "applicationId",
+                        "converter": {"@": "applicationForeignKeyConverter"}
+                    },
+                    "cognitoUserPoolClient": {
+                        "<-": "{ClientId: identifier, UserPoolId: cognitoUserPoolId}",
+                        "converter": {"@": "cognitoAppClient-converter"}
+                    }
+                }
+            },
+            "rawDataMapping": {
+                "rules": {
+                }
+            },
+            "requisitePropertyNames": [
+                "name"
+            ]
+        }
+    },
+
+    "AppClientDescriptor": {
+        "object": "mod/data/model/app/app-client.mjson"
+    },
+
+    "userPool-converter": {
+        "prototype": "mod/data/converter/raw-foreign-value-to-object-converter",
+        "values": {
+            "convertExpression": "cognitoUserPoolId == $"
+        }
+    },
+    "applicationForeignKeyConverter": {
+        "prototype": "mod/data/converter/raw-foreign-value-to-object-converter",
+        "values": {
+            "convertExpression": "id == $"
+        }
+    },
+
+    "cognitoAppClient-converter": {
+        "prototype": "mod/data/converter/raw-foreign-value-to-object-converter",
+        "values": {
+            "convertExpression": "ClientId == $.ClientId && UserPoolId == $.UserPoolId"
+        }
+    }
+
+}
