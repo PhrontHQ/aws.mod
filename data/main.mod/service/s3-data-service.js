@@ -13,8 +13,7 @@ var S3Client,
     crypto = require("crypto"),
     BucketDescriptor = require("../model/s3/bucket.mjson").montageObject,
     ObjectDescriptor = require("../model/s3/object.mjson").montageObject,
-    ExpiringObjectDownloadDescriptor = require("../model/s3/expiring-object-download.mjson").montageObject,
-    S3DataService;
+    ExpiringObjectDownloadDescriptor = require("../model/s3/expiring-object-download.mjson").montageObject;
 
 
 
