@@ -1,2 +1,2 @@
 # aws-mod
-Mod allowing to build live-apps using AWS 
+Mod allowing to build live-apps using AWS.
