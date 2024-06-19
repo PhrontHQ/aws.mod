@@ -109,54 +109,18 @@ CognitoDataService.addClassProperties({
             var promises = this.super();
 
             promises.push(
-                require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/CognitoIdentityProviderClient").then(function(exports) { CognitoIdentityProviderClient = exports.CognitoIdentityProviderClient})
+                require.async("@aws-sdk/client-cognito-identity-provider").then(function(exports) { 
+                    CognitoIdentityProviderClient = exports.CognitoIdentityProviderClient;
+                    ListUserPoolsCommand = exports.ListUserPoolsCommand;
+                    DescribeUserPoolCommand = exports.DescribeUserPoolCommand;
+                    CreateUserPoolCommand = exports.CreateUserPoolCommand;
+                    ListUserPoolClientsCommand = exports.ListUserPoolClientsCommand;
+                    DescribeUserPoolClientCommand = exports.DescribeUserPoolClientCommand;
+                    CreateUserPoolClientCommand = exports.CreateUserPoolClientCommand;
+                })
             );
-            promises.push(
-                require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/commands/ListUserPoolsCommand").then(function(exports) { ListUserPoolsCommand = exports.ListUserPoolsCommand})
-            );
-            promises.push(
-                require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/commands/DescribeUserPoolCommand").then(function(exports) { DescribeUserPoolCommand = exports.DescribeUserPoolCommand})
-            );
-            promises.push(
-                require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/commands/CreateUserPoolCommand").then(function(exports) { CreateUserPoolCommand = exports.CreateUserPoolCommand})
-            );
-            promises.push(
-                require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/commands/ListUserPoolClientsCommand").then(function(exports) { ListUserPoolClientsCommand = exports.ListUserPoolClientsCommand})
-            );
-            promises.push(
-                require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/commands/DescribeUserPoolClientCommand").then(function(exports) { DescribeUserPoolClientCommand = exports.DescribeUserPoolClientCommand})
-            );
-            promises.push(
-                require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/commands/CreateUserPoolClientCommand").then(function(exports) { CreateUserPoolClientCommand = exports.CreateUserPoolClientCommand})
-            );
-
             return promises;
 
-                // this.__cognitoIdentityServiceProviderClientPromise = Promise.all(promises).then(() => { return this.rawClient;});
-
-                this.__cognitoIdentityServiceProviderClientPromise = Promise.all([
-                    // require.async("@aws-sdk/credential-provider-ini"),
-                    // require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/CognitoIdentityProviderClient"),
-                    // require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/commands/ListUserPoolsCommand"),
-                    // require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/commands/DescribeUserPoolCommand"),
-                    // require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/commands/CreateUserPoolCommand"),
-                    // require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/commands/ListUserPoolClientsCommand"),
-                    // require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/commands/DescribeUserPoolClientCommand"),
-                    // require.async("@aws-sdk/client-cognito-identity-provider/dist-cjs/commands/CreateUserPoolClientCommand")
-                ])
-                .then((resolvedModules) => {
-                    fromIni = resolvedModules[0].fromIni;
-                    CognitoIdentityProviderClient = resolvedModules[1].CognitoIdentityProviderClient;
-                    ListUserPoolsCommand = resolvedModules[2].ListUserPoolsCommand;
-                    DescribeUserPoolCommand = resolvedModules[3].DescribeUserPoolCommand;
-                    CreateUserPoolCommand = resolvedModules[4].CreateUserPoolCommand;
-                    ListUserPoolClientsCommand = resolvedModules[5].ListUserPoolClientsCommand;
-                    DescribeUserPoolClientCommand = resolvedModules[6].DescribeUserPoolClientCommand;
-                    CreateUserPoolClientCommand = resolvedModules[7].CreateUserPoolClientCommand;
-                    return this.rawClient;
-
-                });
-            // return this.__cognitoIdentityServiceProviderClientPromise;
         }
     },
 
