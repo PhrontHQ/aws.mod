@@ -20,7 +20,7 @@
 
 
     "Bucket": {
-        "object": "./model/s3/bucket.mjson"
+        "object": "cloud-computing.mod/data/model/object-storage/bucket.mjson"
     },
 
     "BucketMapping": {
@@ -28,7 +28,7 @@
     },
 
     "Object": {
-        "object": "./model/s3/object.mjson"
+        "object": "cloud-computing.mod/data/model/object-storage/object.mjson"
     },
 
     "ObjectMapping": {
@@ -36,7 +36,7 @@
     },
 
     "ExpiringObjectDownload": {
-        "object": "./model/s3/expiring-object-download.mjson"
+        "object": "cloud-computing.mod/data/model/object-storage/expiring-object-download.mjson"
     },
 
     "ExpiringObjectDownloadMapping": {

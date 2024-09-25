@@ -39,7 +39,7 @@
     },
 
     "Object": {
-        "object": "../../model/s3/object.mjson"
+        "object": "cloud-computing.mod/data/model/object-storage/object.mjson"
     },
     "bucket-converter": {
         "prototype": "mod/data/converter/raw-foreign-value-to-object-converter",

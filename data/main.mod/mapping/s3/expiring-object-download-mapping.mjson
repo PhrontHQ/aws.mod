@@ -54,7 +54,7 @@
     },
 
     "ExpiringObjectDownload": {
-        "object": "../../model/s3/expiring-object-download.mjson"
+        "object": "cloud-computing.mod/data/model/object-storage/expiring-object-download.mjson"
     },
     "bucket-converter": {
         "prototype": "mod/data/converter/raw-foreign-value-to-object-converter",

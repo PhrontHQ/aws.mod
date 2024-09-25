@@ -25,7 +25,8 @@
     "@aws-sdk/credential-provider-ini": "^3.75.0",
     "@aws-sdk/s3-request-presigner": "^3.75.0",
     "amazon-cognito-identity-js": "^6.3.12",
-    "mod": "github:PhrontHQ/mod#mod",
+    "mod": "github:PhrontHQ/mod#main",
+    "cloud-computing.mod": "github:PhrontHQ/cloud-computing.mod#main",
     "postgre-s-q-l.mod": "github:PhrontHQ/postgre-s-q-l.mod#main",
     "object-sizeof": "^1.5.2"
   },

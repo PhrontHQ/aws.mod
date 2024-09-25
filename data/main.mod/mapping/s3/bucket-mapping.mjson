@@ -22,7 +22,7 @@
     },
 
     "BucketDescriptor": {
-        "object": "../../model/s3/bucket.mjson"
+        "object": "cloud-computing.mod/data/model/object-storage/bucket.mjson"
     },
 
     "Bucket": {

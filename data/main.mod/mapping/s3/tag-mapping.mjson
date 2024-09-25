@@ -23,7 +23,7 @@
     },
 
     "TagDescriptor": {
-        "object": "../../model/s3/tag.mjson"
+        "object": "cloud-computing.mod/data/model/object-storage/tag.mjson"
     },
 
     "TagIdDescriptor": {
