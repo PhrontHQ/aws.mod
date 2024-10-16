@@ -54,6 +54,9 @@ const CognitoIdentityService = exports.CognitoIdentityService = class CognitoIde
 //     },
 
 CognitoIdentityService.addClassProperties({
+    canSaveData: {
+        value: true
+    },
 
      /***************************************************************************
      * Serialization

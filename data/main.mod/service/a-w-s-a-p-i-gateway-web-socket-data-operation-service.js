@@ -71,6 +71,9 @@ const AWSAPIGatewayWebSocketDataOperationService = exports.AWSAPIGatewayWebSocke
 //     },
 
 AWSAPIGatewayWebSocketDataOperationService.addClassProperties({
+    canSaveData: {
+        value: true
+    },
 
     supportsTransaction: {
         value: true

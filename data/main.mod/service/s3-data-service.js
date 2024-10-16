@@ -102,6 +102,9 @@ const S3DataService = exports.S3DataService = class S3DataService extends AWSRaw
     // },
 
 S3DataService.addClassProperties({
+    canSaveData: {
+        value: true
+    },
 
     handleCreateTransactionOperation: {
         value: function (createTransactionOperation) {

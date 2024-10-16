@@ -53,6 +53,9 @@ const CognitoDataService = exports.CognitoDataService = class CognitoDataService
 //     },
 
 CognitoDataService.addClassProperties({
+    canSaveData: {
+        value: true
+    },
 
     apiVersion: {
         value: "2016-04-18"
